@@ -4,7 +4,7 @@ class DB extends PDO{
         $default_options = [
             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
             PDO::ATTR_EMULATE_PREPARES => false,
-            PDO:: ATTR_ERRMODE => PDO::ERMODE_EXCEPTION
+            PDO::ATTR_ERRMODE => PDO::ERMODE_EXCEPTION
         ];
         $options = array_replace($default_options,$options);
         parent::_construct($dsn,$username,$password,$options);
@@ -12,7 +12,7 @@ class DB extends PDO{
     }
 
     public function run($sql,$argc=NULL){
-        if($argc){
+        if(!$argc){
             return $this->query($sql);
 
         }
